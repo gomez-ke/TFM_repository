@@ -66,7 +66,7 @@ class MicrogridSimulator:
         model = pv_mod.default('PVWattsNone')
         model.SolarResource.solar_resource_file = self.epw_file
         model.SystemDesign.system_capacity = 1.0  # 1 kWp de referencia
-        model.SystemDesign.tilt = params.PV["tilt_deg"]  # 8.0° óptimo calculado
+        model.SystemDesign.tilt = params.PV["tilt_deg"]  # 10.0° criterio constructivo UPME/DNP
         model.SystemDesign.azimuth = params.PV["azimuth_deg"]  # 180.0° Sur
         
         # Factor de pérdidas global del sistema (derate)

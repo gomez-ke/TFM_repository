@@ -32,6 +32,8 @@ def analyze_solar_resource():
     pv_model = pv.default('PVWattsNone')
     pv_model.SolarResource.solar_resource_file = epw_path
     pv_model.SystemDesign.system_capacity = 1.0  # 1 kWp de referencia
+    pv_model.SystemDesign.tilt = 10.0             # Inclinación constructiva UPME/DNP (10°)
+    pv_model.SystemDesign.azimuth = 180.0         # Orientación Sur geográfico (180°)
     pv_model.execute()
 
     gen_hourly_kw   = np.array(pv_model.Outputs.gen)   # 8760 valores en kWh/h

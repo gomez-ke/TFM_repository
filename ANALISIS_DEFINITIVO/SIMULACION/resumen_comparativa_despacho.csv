@@ -1,7 +1,7 @@
 Configuracion,Estrategia,PV_kWp,BESS_kWh,Combustible_L_ano,Emisiones_tCO2_ano,Fraccion_Renovable_pct,Horas_Diesel_ano,Arranques_Diesel,Vertidos_Solares_kWh,Ciclos_BESS_ano,LCOE_USD_kWh,VAN_USD
-"Configuración Baja (27 mod = 15.3 kWp PV, 4 BESS = 20.5 kWh)",Load Following (LF),15.255,20.48,5866.3,15.72,51.97,2523,1527,4377.7,687.6,0.5458,163659.57
-"Configuración Baja (27 mod = 15.3 kWp PV, 4 BESS = 20.5 kWh)",Cycle Charging (CC),15.255,20.48,6365.7,17.06,18.4,1286,647,12169.7,726.3,0.5524,162257.43
-"Configuración Media (44 mod = 24.9 kWp PV, 8 BESS = 41.0 kWh)",Load Following (LF),24.86,40.96,2569.1,6.89,78.97,1105,959,9646.6,397.1,0.4508,184054.58
-"Configuración Media (44 mod = 24.9 kWp PV, 8 BESS = 41.0 kWh)",Cycle Charging (CC),24.86,40.96,4598.5,12.32,41.05,929,366,18689.1,384.3,0.5594,160746.08
-"Configuración Alta (62 mod = 35.0 kWp PV, 12 BESS = 61.4 kWh)",Load Following (LF),35.03,61.44,295.3,0.79,97.58,127,114,17797.1,280.9,0.4225,190130.89
-"Configuración Alta (62 mod = 35.0 kWp PV, 12 BESS = 61.4 kWh)",Cycle Charging (CC),35.03,61.44,722.7,1.94,90.74,146,78,19436.0,279.0,0.4463,185018.23
+"Configuración Baja (27 mod = 15.3 kWp PV, 4 BESS = 20.5 kWh)",Load Following (LF),15.255,20.48,5870.9,15.73,51.93,2525,1530,4398.8,686.0,0.5461,163597.46
+"Configuración Baja (27 mod = 15.3 kWp PV, 4 BESS = 20.5 kWh)",Cycle Charging (CC),15.255,20.48,6365.7,17.06,18.4,1286,647,12178.8,725.6,0.5524,162257.43
+"Configuración Media (44 mod = 24.9 kWp PV, 8 BESS = 41.0 kWh)",Load Following (LF),24.86,40.96,2587.7,6.94,78.81,1113,968,9695.8,396.7,0.4519,183806.05
+"Configuración Media (44 mod = 24.9 kWp PV, 8 BESS = 41.0 kWh)",Cycle Charging (CC),24.86,40.96,4608.4,12.35,40.93,931,366,18731.2,384.1,0.56,160622.0
+"Configuración Alta (62 mod = 35.0 kWp PV, 12 BESS = 61.4 kWh)",Load Following (LF),35.03,61.44,295.3,0.79,97.58,127,116,17812.1,280.9,0.4225,190130.89
+"Configuración Alta (62 mod = 35.0 kWp PV, 12 BESS = 61.4 kWh)",Cycle Charging (CC),35.03,61.44,727.7,1.95,90.67,147,77,19464.0,279.2,0.4466,184956.18

@@ -22,7 +22,7 @@ Fuentes:
   [4] NREL Annual Technology Baseline (ATB) 2024 — atb.nrel.gov
        (4h BESS CAPEX moderate: ~319 USD/kWh 2022$; FOM ~4% CAPEX/kW)
   [5] IPCC Guidelines for National GHG Inventories, 2006/2019
-  [6] UPME, Precios de combustibles ZNI, 2024
+  [6] GlobalPetrolPrices, Precios de combustibles Colombia, 2024
   [7] Header archivo TMY EPW, ECMWF/ERA5, descargado PVGIS
   [8] Victron Energy, Datasheet MultiPlus-II / Quattro 48V, rev. 2024
   [9] NREL PVWatts v8 — System Losses table (valores por defecto)
@@ -67,12 +67,12 @@ PV = {
     "deg_annual":       0.0055,   # [1/año] Degradación lineal años 2–25          ✓
     # Nota: P(t) = P_nom*(1-deg_year1)*(1-deg_annual)^(t-1), t en años
 
-    # --- Geometría óptima calculada (ver Anexo B)
-    # Emplazamiento: lat=4,24°N → hemisphere Norte → azimut sur (180° conv. norte=0°)
-    # Inclinación óptima anual calculada: β_opt = 4,24° × 0,87 + 3,1° ≈ 6,8° → se adopta 8°
-    # (ver derivación matemática completa en Anexo B del TFM)
-    "tilt_deg":         8.0,      # [°]   Inclinación óptima calculada            ~ [Anexo B]
-    "azimuth_deg":      180.0,    # [°]   Azimut (conv. norte=0°, sur=180°)       ~ [Anexo B]
+    # --- Geometría de instalación (ver Anexo A, Sección A.2.4)
+    # Emplazamiento: lat=4,24°N → hemisferio Norte → azimut sur (180° conv. norte=0°)
+    # Inclinación: se adopta β = 10,0° siguiendo el criterio constructivo de la UPME (2003) y DNP (2024)
+    # para autolimpieza y prevención de estancamiento de agua en latitudes < 10° (ver Anexo A.2.4)
+    "tilt_deg":         10.0,     # [°]   Inclinación de diseño UPME/DNP          ~ [Anexo A.2.4]
+    "azimuth_deg":      180.0,    # [°]   Azimut (conv. norte=0°, sur=180°)       ~ [Anexo A.2.4]
 
     # ---------------------------------------------------------------------------
     # Pérdidas del sistema — desglose estilo SAM/PVWatts  [Fuente: 9]
@@ -272,11 +272,10 @@ ECON = {
     # CAPEX PV: 750 USD/kWp (escenario base)
     # Desglose: módulo ~220 USD/kWp + estructura ~100 USD/kWp + BOS+cableado ~70 USD/kWp
     #           + ingeniería+logística ZNI ~200 USD/kWp + instalación ~160 USD/kWp
-    # Base: IRENA 2024 media global utility-scale 691 USD/kW → ajuste +~10% prima
-    #       small-scale (<100 kWp) + logística Colombia ZNI.
-    # Ref. regulatoria Colombia ZNI (CREG/IPSE 2024): ~944 USD/kW (valor oficial).
+    # Base: IRENA 2024 media global utility-scale 691 USD/kW → ajuste prima
+    #       small-scale (<100 kWp, 800–1.200 USD/kW) + desglose logístico rural.
     # Rango sensibilidad: 500–1.100 USD/kWp
-    "capex_pv_USD_kWp":     750.0,  # [USD/kWp]  Módulo+estructura+BOS+instalación~ [3,10,CregZNI]
+    "capex_pv_USD_kWp":     750.0,  # [USD/kWp]  Módulo+estructura+BOS+logística+instalación [3]
 
     # CAPEX BESS: 300 USD/kWh (escenario base)
     # Base: BNEF 2024 turnkey BESS system: 165–169 USD/kWh (utility-scale).
@@ -337,7 +336,7 @@ ECON = {
     # ---------------------------------------------------------------------------
     # Combustible
     # ---------------------------------------------------------------------------
-    "diesel_price_USD_L":   1.30,   # [USD/L] Precio diésel puesto en sitio      ✓ [Cap. 7 / UPME]
+    "diesel_price_USD_L":   1.30,   # [USD/L] Precio diésel puesto en sitio      ✓ [Cap. 7 / GlobalPetrolPrices]
     # Rango análisis sensibilidad: 0.60 – 2.50 USD/L
     # (incluye sobrecoste de transporte fluvial/terrestre a ZNI)
 
@@ -374,12 +373,11 @@ ECON = {
     # "lifetime_pv_yr":    25,      # no aplica: sin reemplazo
 
     # --- Referencia ---
-    "_fuente":          "[3] IRENA 2024 (global PV 691 USD/kW; non-OECD O&M 10.95 USD/kWp/yr). "
+    "_fuente":          "[3] IRENA 2024 (global PV 691 USD/kW; small-scale 800–1200 USD/kW; non-OECD O&M 10.95 USD/kWp/yr). "
                         "[10] BNEF Battery Survey 2024 (turnkey 165–169 USD/kWh). "
                         "[4] NREL ATB 2024 (4h BESS moderate ~319 USD/kWh; FOM 4% CAPEX). "
                         "[11] EPRI 2022 (BESS MSA: 2–6 USD/kW/yr). "
-                        "[12] HOMER Pro v2.9 (diesel O&M: 0.02 USD/kWh; inv. default: 5 USD/kW/yr). "
-                        "[CregZNI] CREG/IPSE 2024 (ref. solar ZNI Colombia: ~944 USD/kW).",
+                        "[12] HOMER Pro v2.9 (diesel O&M: 0.02 USD/kWh; inv. default: 5 USD/kW/yr).",
 }
 
 

@@ -1,0 +1,33 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.lot
+*.log
+*.out
+*.run.xml
+*.toc
+*.xdv
+*.synctex.gz
+
+# Python cache y entornos virtuales
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+env/
+
+# Archivos pesados y datasheets que no corresponden a scripts
+*.pdf
+*.zip
+*.dll
+*.h
+
+# Archivos temporales y de configuración local
+.vscode/
+scratch/
+scratch_mpl/
+.agents/
